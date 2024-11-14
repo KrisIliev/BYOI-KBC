@@ -6,9 +6,9 @@ Unfortunately I did not have enough time to make it deploy Wordpress so I have j
 ## Architecture Overview
 The deployment includes the following AWS components:
 
-- VPC: A Virtual Private Cloud with both public and private subnets across multiple Availability Zones for high availability.
+- VPC: A Virtual Private Cloud with subnet across multiple Availability Zones for high availability.
 - Public Subnets: Host the Application Load Balancer (ALB) and NAT Gateway for managing external traffic.
-- EC2 Instances: Auto Scaling Group for WordPress instances, configured to scale based on demand.
+- EC2 Instances: Auto Scaling Group for WordPress instances(Nginx at this time), configured to scale based on demand.
 - RDS (MySQL): Managed MySQL database with Multi-AZ deployment for high availability.
 - ALB (Application Load Balancer): Distributes incoming HTTP requests across EC2 instances.
 - Security Groups: Control inbound and outbound traffic to ensure secure access.
@@ -23,8 +23,10 @@ The deployment includes the following AWS components:
 - Load Balancing
 
 
-## What could I improve:
+## What could be improved:
 
 - Add a way to install and import wordpress website
 - Add RDS to a private subnet
-- TLS
+- TLS/SSL on the load balancer
+- Shared storage for the instances
+- Deployment/upgrade strategy
